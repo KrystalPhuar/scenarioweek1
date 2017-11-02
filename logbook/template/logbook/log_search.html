@@ -1,0 +1,14 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <form method="get">
+    {{ filter.form.as_p }}
+    <button type="submit">Search</button>
+  </form>
+  <ul>
+  {% for log in filter.qs %}
+    <li>{{ log.email }} - {{ log.content }}</li>
+  {% endfor %}
+  </ul>
+  <a href="{% url 'index' %}">Back to Log</a>
+{% endblock %}

@@ -23,6 +23,7 @@ from logbook.views import logs
 from logbook import views
 from logbook import views as core_views
 
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^logbook/', include('logbook.urls')),
@@ -33,6 +34,7 @@ urlpatterns = [
     url(r'^logbook/add/$', views.log_new, name='log_new'),
     url(r'^logbook/edit/(?P<id>\d+)/edit/$', views.log_edit, name='log_edit'),
     url(r'^logbook/signup', core_views.signup, name='signup'),
+    url(r'^logbook/search/$', views.search, name='search'),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 url('accounts/login/', auth_views.LoginView.as_view()),

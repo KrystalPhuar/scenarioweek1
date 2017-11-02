@@ -8,6 +8,7 @@
 
 {% block content %}
 <div class='loglist'>
+  <a href="{% url 'search' %}">Search</a>
   <a href="{% url 'log_new' %}">Add Log</a>
   {% if log_list %}
   <table border="1">

@@ -99,3 +99,10 @@ def signup(request):
     else:
         form = UserCreationForm()
     return render(request, 'logbook/signup.html', {'form': form})
+
+from .filters import LogFilter
+
+def search(request):
+    log_list = Log.objects.all()
+    log_filter = LogFilter(request.GET, queryset=log_list)
+    return render(request, 'logbook/log_search.html', {'filter': log_filter})
