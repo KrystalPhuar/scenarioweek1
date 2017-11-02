@@ -23,7 +23,7 @@
       <td>{{ log.email }}</td>
       <td>{{ log.date }}</td>
       <td>{{ log.content }}</td>
-      <td><a href="{% url 'log_edit' id=log.id %}">edit&nbsp;<a href="{% url 'delete' log.id %}">delete</td>
+      <td><a href="{% url 'log_edit' id=log.id %}">Edit&nbsp;<a href="{% url 'delete' log.id %}">Delete</td>
     </tr>
   {% endfor %}
     </table>
