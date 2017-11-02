@@ -1,7 +1,7 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-    <h1>Log Form</h1>
+    <h1>Edit Log Form</h1>
     <form method="POST" class="log-form" action = "">{% csrf_token %}
         <p>Content</p>
         <textarea id='content' name='content' rows='5'>{{log.content}}</textarea>
