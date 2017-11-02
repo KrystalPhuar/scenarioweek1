@@ -1,12 +1,13 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-  <form method="get">
-    {{ filter.form.as_p }}
+  <form method="POST" action=""> {% csrf_token %}
+    <label for="search">Email:</label>
+    <input type="text" id="search" name="search" placeholder="Enter email to search" required>
     <button type="submit">Search</button>
   </form>
   <ul>
-  {% for log in filter.qs %}
+  {% for log in filter %}
     <li>{{ log.email }} - {{ log.content }}</li>
   {% endfor %}
   </ul>
