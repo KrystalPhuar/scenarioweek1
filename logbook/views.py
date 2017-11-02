@@ -103,6 +103,10 @@ def signup(request):
 from .filters import LogFilter
 
 def search(request):
-    log_list = Log.objects.all()
-    log_filter = LogFilter(request.GET, queryset=log_list)
-    return render(request, 'logbook/log_search.html', {'filter': log_filter})
+    if request.method == "POST":
+        query = request.POST.get("search")
+        log_list = Log.objects.filter(email__icontains=query)
+        print log_list
+        return render(request, 'logbook/log_search.html', {'filter': log_list})
+    else:
+        return render(request, 'logbook/log_search.html')
