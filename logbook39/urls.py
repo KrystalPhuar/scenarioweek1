@@ -33,7 +33,6 @@ urlpatterns = [
     url(r'^logbook/add/$', views.log_new, name='log_new'),
     url(r'^logbook/edit/(?P<id>\d+)/edit/$', views.log_edit, name='log_edit'),
     url(r'^logbook/signup', core_views.signup, name='signup'),
-    # url(r'^log/add/$', views.add_new_log, name='add-new-log'),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 url('accounts/login/', auth_views.LoginView.as_view()),

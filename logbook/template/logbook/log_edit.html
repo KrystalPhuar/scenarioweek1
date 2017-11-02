@@ -2,8 +2,9 @@
 
 {% block content %}
     <h1>Log Form</h1>
-    <form method="POST" class="log-form">{% csrf_token %}
-        {{ form.as_p }}
+    <form method="POST" class="log-form" action = "">{% csrf_token %}
+        <p>Content</p>
+        <textarea id='content' name='content' rows='5'>{{log.content}}</textarea>
         <button type="submit" class="save btn btn-default">Save</button>
     </form>
 {% endblock %}

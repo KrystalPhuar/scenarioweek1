@@ -77,15 +77,10 @@ def log_new(request):
 def log_edit(request, id):
     log = get_object_or_404(Log, id=id)
     if request.method == "POST":
-        form = LogForm(request.POST, instance=log)
-        if form.is_valid():
-            log = form.save(commit=False)
-            log.email = request.user.username
-            log.save()
-            return redirect('logs')
-    else:
-        form = LogForm()
-    return render(request, 'logbook/log_edit.html', {'form': form})
+        log.content = request.POST.get('content')
+        log.save()
+        return redirect('logs')
+    return render(request, 'logbook/log_edit.html', {'log': log})
 
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
