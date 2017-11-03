@@ -61,6 +61,7 @@ def edit(request, id):
 
 from .forms import LogForm
 
+@login_required
 def log_new(request):
     if request.method == "POST":
         form = LogForm(request.POST)
@@ -73,7 +74,7 @@ def log_new(request):
         form = LogForm()
     return render(request, 'logbook/log_edit.html', {'form': form})
 
-
+@login_required
 def log_edit(request, id):
     log = get_object_or_404(Log, id=id)
     if request.method == "POST":
@@ -102,6 +103,7 @@ def signup(request):
 
 from .filters import LogFilter
 
+@login_required
 def search(request):
     if request.method == "POST":
         query = request.POST.get("search")
